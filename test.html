@@ -7,38 +7,56 @@
     	* { padding: 0; margin: 0; }
     	canvas {  }
     	.bgcanvas{background: #bfb;}
+		.container {
+ 		 position: relative;
+		}
+
+		.container > canvas {
+  		position: absolute;
+  		top: 0;
+  		left: 0;
+		}
     </style>
 </head>
 <body>
 
-<canvas class="bgcanvas" id="myCanvas"></canvas>
+
+<div id = "container" class = "container">
+	<canvas id = "canvas_background"  class="bgcanvas" ></canvas>
+	<canvas id = "canvas_layerFirst" ></canvas>
+	<canvas id = "canvas_foreground" ></canvas>
+  </div>
 
 <script>
 	// JavaScript code goes here
-	var canvas = document.getElementById("myCanvas");
-	var ctx = canvas.getContext("2d");
+	var canvasBackground = document.getElementById("canvas_background");
+	var canvasL1 = document.getElementById("canvas_layerFirst");
+	var ctx_bg = canvasBackground.getContext("2d");
+	var ctx_l1 = canvasL1.getContext("2d");
 	//var mainPageScope = {max : }; 
 	//alert(screen.height);
-	canvas.width = document.body.clientWidth;
-	canvas.height = screen.height;
+	canvasBackground.width = document.body.clientWidth;
+	canvasBackground.height = screen.height;
+	canvasL1.width = document.body.clientWidth;
+	canvasL1.height = screen.height;
 
 
 	//
 	//
 
 	//tile & tile 5*5
-	ctx.beginPath();
-	ctx.rect(0, 0, 54, 54);
-	ctx.strokeStyle = "rgba(0, 0, 0, 0.5)";
-	ctx.stroke();
-	ctx.closePath();
+	ctx_l1.beginPath();
+	ctx_l1.rect(0, 0, 54, 54);
+	ctx_l1.strokeStyle = "rgba(0, 0, 0, 0.5)";
+	ctx_l1.stroke();
+	ctx_l1.closePath();
 
 
-	ctx.beginPath();
-	ctx.rect(0+2, 0+2, 50, 50);
-	ctx.fillStyle = "#000000";
-	ctx.fill();
-	ctx.closePath();
+	ctx_l1.beginPath();
+	ctx_l1.rect(0+2, 0+2, 50, 50);
+	ctx_l1.fillStyle = "#000000";
+	ctx_l1.fill();
+	ctx_l1.closePath();
 
 </script>
 
