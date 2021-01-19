@@ -24,6 +24,7 @@
 <div id = "container" class = "container">
 	<canvas id = "canvas_background"  class="bgcanvas" ></canvas>
 	<canvas id = "canvas_layerFirst" ></canvas>
+	<canvas id = "canvas_layerSecond" ></canvas>
 	<canvas id = "canvas_foreground" ></canvas>
   </div>
 
@@ -31,8 +32,13 @@
 	// JavaScript code goes here
 	var canvasBackground = document.getElementById("canvas_background");
 	var canvasL1 = document.getElementById("canvas_layerFirst");
+	var canvasL2 = document.getElementById("canvas_layerSecond");
+	var canvasTop = document.getElementById("canvas_foreground");
+	//all layer of 2d context
 	var ctx_bg = canvasBackground.getContext("2d");
 	var ctx_l1 = canvasL1.getContext("2d");
+	var ctx_l2 = canvasL2.getContext("2d");
+	var ctx_top = canvasTop.getContext("2d");
 	//var mainPageScope = {max : }; 
 	//alert(screen.height);
 	canvasBackground.width = document.body.clientWidth;
