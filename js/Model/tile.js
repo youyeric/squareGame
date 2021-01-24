@@ -4,18 +4,18 @@ var tilePoint = 0;
 var t_color =["#000000","#0f0f0f"];
 var tiles = [];
 function createTile(tilePx,tilePy){
-	ctx.beginPath();
-	ctx.rect(tilePx, tilePy, tileBoard, tileBoard);
-	ctx.strokeStyle = "rgba(0, 0, 0, 0.5)";
-	ctx.stroke();
-	ctx.closePath();
+	ctx_l1.beginPath();
+	ctx_l1.rect(0, 0, 54, 54);
+	ctx_l1.strokeStyle = "rgba(0, 0, 0, 0.5)";
+	ctx_l1.stroke();
+	ctx_l1.closePath();
 
 
-	ctx.beginPath();
-	ctx.rect(tilePx+2, tilePy+2, tileSize, tileSize);
-	ctx.fillStyle = "#000000";
-	ctx.fill();
-	ctx.closePath();
+	ctx_l1.beginPath();
+	ctx_l1.rect(0+2, 0+2, 50, 50);
+	ctx_l1.fillStyle = "#000000";
+	ctx_l1.fill();
+	ctx_l1.closePath();
 }
 
 function makeTiles(scale){
