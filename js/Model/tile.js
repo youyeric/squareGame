@@ -4,9 +4,13 @@ var tilePoint = 0;
 var t_color =["#000000","#0f0f0f"];
 var tiles = [];
 
-function Tile(x,y,num,color){
+function Tile(x,y,num,color,player){
 	this.pX = x;
 	this.pY = y;
 	this.num = num;
 	this.color = color;
+	this.player = player;
+}
+function loadTilesModel(){
+	
 }

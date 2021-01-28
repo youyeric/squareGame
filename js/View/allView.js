@@ -22,25 +22,28 @@ var ctx_top = canvasTop.getContext("2d");
 
 
 //basal method
-function createTile(tilePx,tilePy){
-	ctx_l1.beginPath();
-	ctx_l1.rect(0, 0, 54, 54);
+function createTile_View(tilePx,tilePy){
+	var path = new Path2D();
+	path.rect(tilePx, tilePy, 54, 54);
 	ctx_l1.strokeStyle = "rgba(0, 0, 0, 0.5)";
-	ctx_l1.stroke();
-	ctx_l1.closePath();
+	ctx_l1.stroke(path);
 
 
 	ctx_l1.beginPath();
-	ctx_l1.rect(0+2, 0+2, 50, 50);
+	ctx_l1.rect(tilePx+2, tilePy+2, 50, 50);
 	ctx_l1.fillStyle = "#000000";
 	ctx_l1.fill();
 	ctx_l1.closePath();
+
+	ctx_l1.font = "30px Arial";
+	ctx_l1.fillStyle = "white";
+	ctx_l1.fillText("2", tilePx+20, tilePy+40);
 }
 
-function makeTiles(scale){
-	for(var i = 0, i < scale, i++){
-		for(var j = 0, j < scale, j++){
-			createTile(i*tileBoard, j*tileBoard);
+function makeTilesOnView(scaleX,scaleY){
+	for(var i = 0; i < scaleY; i++){
+		for(var j = 0; j < scaleX; j++){
+			createTile_View(j*tileBoard, i*tileBoard);
 		}
 	}
 }
@@ -57,5 +60,8 @@ function createScene(){
 	canvasTop.width = document.body.clientWidth;
 	canvasTop.height = screen.height;
 	//make tiles
+	//loadTilesModel();
+	//make tile on view
+	 makeTilesOnView(5,9);
 	
 }
