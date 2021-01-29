@@ -28,45 +28,15 @@
 	<canvas id = "canvas_foreground" ></canvas>
   </div>
 <script type="text/javascript" src="js/View/allView.js"></script>
+<script type="text/javascript" src="js/Control/allControll.js"></script>
+<script type="text/javascript" src="js/Model/tile.js"></script>
 <script>
 	// JavaScript code goes here
-	/*var canvasBackground = document.getElementById("canvas_background");
-	var canvasL1 = document.getElementById("canvas_layerFirst");
-	var canvasL2 = document.getElementById("canvas_layerSecond");
-	var canvasTop = document.getElementById("canvas_foreground");
-	//all layer of 2d context
-	var ctx_bg = canvasBackground.getContext("2d");
-	var ctx_l1 = canvasL1.getContext("2d");
-	var ctx_l2 = canvasL2.getContext("2d");
-	var ctx_top = canvasTop.getContext("2d");
-	//var mainPageScope = {max : }; 
-	//alert(screen.height);
-	canvasBackground.width = document.body.clientWidth;
-	canvasBackground.height = screen.height;
-	canvasL1.width = document.body.clientWidth;
-	canvasL1.height = screen.height;
-
-
-	//
-	//
-
-	//tile & tile 5*5
-	ctx_l1.beginPath();
-	ctx_l1.rect(0, 0, 54, 54);
-	ctx_l1.strokeStyle = "rgba(0, 0, 0, 0.5)";
-	ctx_l1.stroke();
-	ctx_l1.closePath();
-
-
-	ctx_l1.beginPath();
-	ctx_l1.rect(0+2, 0+2, 50, 50);
-	ctx_l1.fillStyle = "#000000";
-	ctx_l1.fill();
-	ctx_l1.closePath();*/
+	window.addEventListener('resize', resizeView);
 
 	//make tile
 	//run playing process
-	createScene();
+	createInitialScene();
 
 </script>
 
