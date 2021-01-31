@@ -6,4 +6,6 @@ function createInitialScene(){
 	//loadTilesModel();
 	//make tile on view
 	 makeTilesOnView(5,9);
+	//create player info view
+	createPlayInfo_View(); 
 }

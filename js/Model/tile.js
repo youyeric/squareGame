@@ -3,7 +3,7 @@ var tileBoard = 54;
 var tilePoint = 0;
 var t_color =["#000000","#666666","#ffffff"];
 var tiles = [];
-var numInitialMap = [32,64,128,64,32,8,4,16,4,8,4,8,4,8,4,2,2,4,2,2,2,2,0];
+var numInitialMap = [16,32,64,32,16,8,4,16,4,8,4,8,4,8,4,2,2,4,2,2,2,2,0];
 var testPlayer = ["Eric","Nick"];
 
 function Tile(x,y,num,color,player){
@@ -22,6 +22,13 @@ function Tile(x,y,num,color,player){
 	};
 	this.color = color;
 	this.player = player;
+}
+function Player(id, name, color){
+	this.id = id;
+	this.name = name;
+	this.color = color;
+	this.getScore = function(){};
+	this.getTilesCount = function(){};
 }
 function loadTilesModel(){
 	var i = 0;

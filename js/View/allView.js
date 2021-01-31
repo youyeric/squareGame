@@ -9,6 +9,8 @@ var fontS = 30;
 var fontPx = 20;
 var fontPy = 40;
 var numMathPx = 0;
+var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
 //Layer_BG set
 var canvasBackground = document.getElementById("canvas_background");
 var ctx_bg = canvasBackground.getContext("2d");
@@ -29,8 +31,8 @@ var ctx_top = canvasTop.getContext("2d");
 function loadViewSet(){
 		clearAll();
 		var b = parseInt(screen.width/screen.height);
-		var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-		var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
+		width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+		height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
 		canvasBackground.width = width;
 		canvasBackground.height = height;
 		ctx_bg.fillStyle = "#bfb";
@@ -80,6 +82,31 @@ function createTile_View(tilePx,tilePy,num,fontnumX,color){
 	ctx_l1.fillText(num, tilePx + tileCenterP + fontPx - (numMathPx*fontnumX), tilePy+fontPy+tilePoint);
 }
 
+//make player info view
+function createPlayInfo_View(){
+	ctx_l2.beginPath();
+	ctx_l2.rect(tileCenterP, 0, tileBoard*5, tilePoint/1.5);
+	ctx_l2.fillStyle = "#aaa";
+	ctx_l2.fill();
+	ctx_l2.closePath();
+
+	ctx_l2.beginPath();
+	ctx_l2.rect(tileCenterP,tilePoint/1.5, tileBoard*2.5, tilePoint - (tilePoint/1.5));
+	ctx_l2.fillStyle = "#fff";
+	ctx_l2.fill();
+	ctx_l2.closePath();
+
+	ctx_l2.beginPath();
+	ctx_l2.rect(tileCenterP + tileBoard*2.5, tilePoint/1.5, tileBoard*2.5, tilePoint - (tilePoint/1.5));
+	ctx_l2.fillStyle = "#aff";
+	ctx_l2.fill();
+	ctx_l2.closePath();
+
+	ctx_l2.font = "40px Arial";
+	ctx_l2.fillStyle = "black";
+	ctx_l2.fillText("0000", tileCenterP + (tileBoard*5/2), fontPy);
+}
+//make tiles by scale
 function makeTilesOnView(scaleX,scaleY){
 	for(var i = 0; i < scaleY; i++){
 		for(var j = 0; j < scaleX; j++){
@@ -102,5 +129,6 @@ function clearAll(){
 }
 function resizeView(){
 	loadViewSet();
+	createPlayInfo_View();
 	makeTilesOnView(5,9);
 }
